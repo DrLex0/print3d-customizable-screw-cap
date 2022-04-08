@@ -6,13 +6,15 @@
 // Outer diameter of the male thread on which the cap will be screwed
 Thread_OD = 12.0; //[5:.05:80]
 // Thread pitch (distance between each turn)
-Thread_Pitch = 1.25; //[0.2:.01:3]
+Thread_Pitch = 1.25; //[0.2:.01:5]
 // The height of the thread
 Thread_Length = 7; //[2:.1:30]
 // Space between male thread outer diameter and cap inside diameter
 Spacing = 0.4; //[0:.05:2]
 // Cut away this much of the thread to make it blunt and easier going
 Cut_Thread_Percent = 20; //[0:1:80]
+// Extra gap between threads, expressed as fraction of the pitch. Larger gap means thinner thread.
+Thread_Gap = 0; //[0:.01:0.5]
 
 /* [Cap Geometry] */
 // Thickness of the cap's wall at the closed end
@@ -27,7 +29,7 @@ Extra_Length = 0.5; //[0:.1:5]
 Bevel = 0.5; //[0:.05:2]
 // For your pleasure
 Ribbed = 0; //[0:no, 1:yes]
-Number_of_Ribs = 32; //[16:96]
+Number_of_Ribs = 32; //[16:128]
 
 /* [Resolution] */
 // Resolution of curves in steps/360°
@@ -47,6 +49,7 @@ bevel_c = min(Bevel, Extra_Length);
 
 thread_turns = Thread_Length / Thread_Pitch;
 thread_thick = ((Thread_Length/thread_turns)/2);
+thread_s = 1 - Thread_Gap;
 
 cut_mittelhoehe = thread_thick*Cut_Thread_Percent/100;
 cut_breite = thread_thick*(100-Cut_Thread_Percent)/100;
@@ -92,16 +95,16 @@ module Cap()
 				P = (Cut_Thread_Percent > 0) 
 				?
 					[
-						[tol*2,-(thread_thick-tol)],
-						[-cut_breite,-cut_mittelhoehe],
-						[-cut_breite, cut_mittelhoehe],
-						[tol*2,thread_thick-tol]
+						[tol*2,-(thread_thick*thread_s-tol)],
+						[-cut_breite,-cut_mittelhoehe*thread_s],
+						[-cut_breite, cut_mittelhoehe*thread_s],
+						[tol*2,thread_thick*thread_s-tol]
 					]
 				:
 					[
-						[tol,-(thread_thick-tol)],
+						[tol,-(thread_thick*thread_s-tol)],
 						[-thread_thick,0],
-						[tol,thread_thick-tol]
+						[tol,thread_thick*thread_s-tol]
 					]
 				,
 				r = Thread_OD / 2 + Spacing,

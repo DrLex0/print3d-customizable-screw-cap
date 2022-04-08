@@ -9,7 +9,7 @@ This uses the `screw_extrude` function from “customizable round box with threa
 
 ### Gallery
 
-![Photo 1](thumbs/cap1-off.jpg)[🔎](images/cap1-off.jpg) ![Photo 2](thumbs/cap1-on.jpg)[🔎](images/cap1-on.jpg) ![Photo 3](thumbs/cap2-off.jpg)[🔎](images/cap2-off.jpg) ![Photo 4](thumbs/cap2-on.jpg)[🔎](images/cap2-on.jpg) ![OpenSCAD Preview](thumbs/model.jpg)[🔎](images/model.jpg)
+![Photo 1](thumbs/cap1-off.jpg)[🔎](images/cap1-off.jpg) ![Photo 2](thumbs/cap1-on.jpg)[🔎](images/cap1-on.jpg) ![Photo 3](thumbs/cap2-off.jpg)[🔎](images/cap2-off.jpg) ![Photo 4](thumbs/cap2-on.jpg)[🔎](images/cap2-on.jpg) ![Photo 5](thumbs/cap3.jpg)[🔎](images/cap3.jpg) ![OpenSCAD Preview](thumbs/model.jpg)[🔎](images/model.jpg)
 
 
 ## Description and Instructions
@@ -27,6 +27,7 @@ Measure these dimensions:
 3. The length of the threaded end that must be covered by the cap. Some tubes have a thicker ring at the base of the thread, you should not include this in the measurement.
 
 Once you have those measurements, open the `.scad` file in [OpenSCAD](https://www.openscad.org/) and **[use the OpenSCAD Customizer](https://www.dr-lex.be/3d-printing/customizer.html)** to enter the values and generate the final STL file. Next to the above parameters, there are many other things that can be customised. The most important parameter is the spacing: if the cap is too sloppy then increase this value, if it is too tight, then lower it. For me, a spacing of 0.40 mm works well.
+For certain lids it may be necessary to increase the gap between threads. The gap is expressed as a fraction of the pitch and the higher the value, the more the thread shape will be squished. High gap values may be more difficult to print cleanly.
 
 Other parameters define the overall shape of the cap or lid. You can opt to give the cap a ribbed (knurled) outside for better grip.
 
@@ -34,6 +35,15 @@ Other parameters define the overall shape of the cap or lid. You can opt to give
 ### Print Settings I've used
 
 For finer screw threads, a layer height of 0.1 mm is recommended. For coarser threads, 0.15 mm may suffice, and for big lids 0.2 mm may even be OK. The caps shown in the photos were printed with 3 perimeters. I used ABS, but in general PETG is probably the best material choice because of its toughness and resilience against chemicals. Of course PLA will also work fine in many cases.
+
+
+## Updates
+
+### 2020/07/02
+First published.
+
+### 2022/04/08
+Added thread gap and increased limits on some parameters.
 
 
 ## Tags
