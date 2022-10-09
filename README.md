@@ -37,6 +37,16 @@ Other parameters define the overall shape of the cap or lid. You can opt to give
 For finer screw threads, a layer height of 0.1 mm is recommended. For coarser threads, 0.15 mm may suffice, and for big lids 0.2 mm may even be OK. The caps shown in the photos were printed with 3 perimeters. I used ABS, but in general PETG is probably the best material choice because of its toughness and resilience against chemicals. Of course PLA will also work fine in many cases.
 
 
+## Example files
+
+The `examples` folder contains some pre-rendered models of the presets.
+
+- `Flexium` is for a metal tube of anti-inflammatory gel, and might fit similar tubes.
+- `medicalBottle` fits many of the typical bottles used in medicine. The `polished` model has been tweaked in Blender to look nicer. (Should probably be used with an extra seal or wad.)
+- `OralB-75ml` fits a plastic toothpaste tube and might also fit similar tubes.
+- `Talens-paint-50ml` fits a small glass jar of paint. This also has a `polished` model that looks more like the original.
+
+
 ## Updates
 
 ### 2020/07/02

@@ -54,6 +54,24 @@
             "Wall_Thick_2": "1.1",
             "fn": "96",
             "tol": "0.05"
+        },
+        "Medical_bottle_cap": {
+            "Bevel": "0.6",
+            "Bottom": "1.8",
+            "Cut_Thread_Percent": "35",
+            "Extra_Length": "3",
+            "Number_of_Ribs": "80",
+            "Ribbed": "1",
+            "Sectioned": "0",
+            "Spacing": "0.6",
+            "Thread_Gap": "0.3",
+            "Thread_Length": "11",
+            "Thread_OD": "27.15",
+            "Thread_Pitch": "4.2",
+            "Wall_Thick_1": "1.6",
+            "Wall_Thick_2": "1.6",
+            "fn": "96",
+            "tol": "0.05"
         }
     }
 }
