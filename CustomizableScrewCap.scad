@@ -22,11 +22,13 @@ Wall_Thick_1 = 1.2; //[1:.05:6]
 // Thickness of the cap's wall at the open end
 Wall_Thick_2 = 1.2; //[1:.05:6]
 // Thickness of the cap's bottom (or top, depending on how you look at it)
-Bottom = 2; //[0.5:.1:10]
+Bottom = 2; //[0.0:.1:10]
 // Extra unthreaded part at open end
 Extra_Length = 0.5; //[0:.1:5]
-// Bevel, will be clipped to Extra_Length
+// 45 degree bevel, will be clipped to smallest of Extra_Length and Wall_Thick_2
 Bevel = 0.5; //[0:.05:2]
+// Extra unthreaded part at closed end
+Extra_Inside = 0.0; //[0:.1:30]
 // For your pleasure
 Ribbed = 0; //[0:no, 1:yes]
 Number_of_Ribs = 32; //[16:128]
@@ -41,11 +43,11 @@ Sectioned = 0; //[0:no, 1:yes]
 
 /* [Hidden] */
 tol = 0.05;
-total_height = Bottom + Thread_Length + Extra_Length;
+total_height = Bottom + Thread_Length + Extra_Length + Extra_Inside;
 outer_dia1 = Thread_OD + 2*(Spacing + Wall_Thick_1);
 outer_dia2 = Thread_OD + 2*(Spacing + Wall_Thick_2);
 
-bevel_c = min(Bevel, Extra_Length);
+bevel_c = min(Bevel, Extra_Length, Wall_Thick_2);
 
 thread_turns = Thread_Length / Thread_Pitch;
 thread_thick = ((Thread_Length/thread_turns)/2);
@@ -76,7 +78,7 @@ module Cap()
             }
         }
 		translate([0,0,Bottom])
-			cylinder(r=Thread_OD/2 + Spacing, h=Thread_Length + Extra_Length+ tol, $fn=fn);
+			cylinder(r=Thread_OD/2 + Spacing, h=Thread_Length + Extra_Length + Extra_Inside + tol, $fn=fn);
         if(bevel_c > 0) {
             translate([0, 0, total_height - bevel_c - tol]) cylinder(h=bevel_c+2*tol, r1=Thread_OD/2 + Spacing - tol, r2=Thread_OD/2 + Spacing + bevel_c + tol, $fn=fn);
         }
@@ -88,7 +90,7 @@ module Cap()
 
 	difference()
 	{
-		translate([0,0, Bottom - Thread_Pitch*.33])
+		translate([0,0, Extra_Inside + Bottom - Thread_Pitch*.33])
 		{	
 			screw_extrude
 			(
@@ -116,7 +118,7 @@ module Cap()
 			);
 		}
         // Ensure thread does not stick out from top or bottom
-		translate([0,0,Thread_Length + Bottom - tol])
+		translate([0,0,Extra_Inside + Thread_Length + Bottom - tol])
 			cylinder(r=outer_dia1, h=Thread_Pitch+tol);
 		translate([0,0,-Thread_Pitch])
 			cylinder(r=outer_dia1, h=Thread_Pitch+tol);
