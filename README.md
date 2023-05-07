@@ -58,6 +58,9 @@ Added thread gap and increased limits on some parameters.
 ### 2023/01/05
 Added option for extra unthreaded space on inside of cap, and allow bottom to be 0 to generate an open threaded tube.
 
+### 2023/05/07
+Added option for hole in the cap.
+
 
 ## Tags
 `customizable`, `customizer`, `openscad`, `tube`, `box`, `lid`, `cap`, `thread`

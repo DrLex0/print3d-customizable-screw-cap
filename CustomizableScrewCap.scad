@@ -37,6 +37,13 @@ Number_of_Ribs = 32; //[16:128]
 // Resolution of curves in steps/360°
 fn = 96; //[16,32,48,64,96,128,256]
 
+/* [Extras] */
+// Use diameter > 0 to make a hole in the cap, will be clipped to wall inner diameter
+Hole_dia = 0; //[0:.1:75]
+
+// Number of segments in the hole
+Hole_fn = 16; //[3:128]
+
 /* [Visualisation] */
 // Enable this to show a cross-section
 Sectioned = 0; //[0:no, 1:yes]
@@ -86,6 +93,10 @@ module Cap()
 			cylinder(r=outer_dia1, h=10*tol);
         translate([0,0,total_height])
 			cylinder(r=outer_dia2, h=10*tol);
+
+        if(Hole_dia > 0) {
+            translate([0,0,-tol]) cylinder(r=min(Hole_dia/2, Thread_OD/2 + Spacing), h=2*Bottom, $fn=Hole_fn);
+        }
 	}
 
 	difference()
