@@ -32,6 +32,8 @@ Extra_Inside = 0.0; //[0:.1:30]
 // For your pleasure
 Ribbed = 0; //[0:no, 1:yes]
 Number_of_Ribs = 32; //[16:128]
+Ribs_Bevel_Top = 0; //[0:no, 1:yes]
+Ribs_Bevel_Bottom = 0; //[0:no, 1:yes]
 
 /* [Resolution] */
 // Resolution of curves in steps/360°
@@ -81,7 +83,17 @@ module Cap()
             translate([0,0,-2*tol])
                 cylinder(h=total_height+4*tol, d1 = outer_dia1, d2 = outer_dia2, $fn=Ribbed ? Number_of_Ribs : fn);
             if(Ribbed) {
-                Ribs();
+                rib_offset = [0,0,180/Number_of_Ribs];
+                intersection() {
+                    Ribs();
+                    if(Ribs_Bevel_Top != 0) {
+                        rotate(rib_offset) translate([0,0,-tol]) cylinder(h = total_height+2*tol, d1 = outer_dia2+2*total_height, d2 = outer_dia2, $fn=Number_of_Ribs);
+                    }
+                    if(Ribs_Bevel_Bottom != 0) {
+                        rotate(rib_offset) translate([0,0,-tol]) cylinder(h = total_height+2*tol, d1 = outer_dia1, d2 = outer_dia1
+                        +2*total_height, $fn=Number_of_Ribs);
+                    }
+                }
             }
         }
 		translate([0,0,Bottom])

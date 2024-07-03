@@ -16,8 +16,7 @@
             "Thread_Pitch": "1.15",
             "Wall_Thick_1": "1.2",
             "Wall_Thick_2": "2.2",
-            "fn": "96",
-            "tol": "0.05"
+            "fn": "96"
         },
         "Oral-B 75ml tube": {
             "Bevel": "0.5",
@@ -34,8 +33,7 @@
             "Thread_Pitch": "2.2",
             "Wall_Thick_1": "1.55",
             "Wall_Thick_2": "1.55",
-            "fn": "96",
-            "tol": "0.05"
+            "fn": "96"
         },
         "Talens Gouache 50ml": {
             "Bevel": "0.5",
@@ -52,8 +50,7 @@
             "Thread_Pitch": "4.25",
             "Wall_Thick_1": "1.1",
             "Wall_Thick_2": "1.1",
-            "fn": "96",
-            "tol": "0.05"
+            "fn": "96"
         },
         "Medical_bottle_cap": {
             "Bevel": "0.6",
@@ -70,8 +67,28 @@
             "Thread_Pitch": "4.2",
             "Wall_Thick_1": "1.6",
             "Wall_Thick_2": "1.6",
-            "fn": "96",
-            "tol": "0.05"
+            "fn": "96"
+        },
+        "SKS-bicyclePump-fix": {
+            "Bevel": "0.3",
+            "Bottom": "1.2",
+            "Cut_Thread_Percent": "15",
+            "Extra_Inside": "0",
+            "Extra_Length": "0.8",
+            "Hole_dia": "6.6",
+            "Hole_fn": "24",
+            "Number_of_Ribs": "48",
+            "Ribbed": "1",
+            "Ribs_Bevel_Bottom": "1",
+            "Sectioned": "0",
+            "Spacing": "0.2",
+            "Thread_Gap": "0",
+            "Thread_Length": "6.2",
+            "Thread_OD": "11.7",
+            "Thread_Pitch": "1",
+            "Wall_Thick_1": "1.2",
+            "Wall_Thick_2": "1.4",
+            "fn": "96"
         }
     }
 }
